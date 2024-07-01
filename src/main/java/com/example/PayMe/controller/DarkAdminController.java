@@ -38,8 +38,8 @@ public class DarkAdminController {
 	    if (user != null) {
 	        user.setBalance(user.getBalance() - 50);
 	        cpt++;
-	        user.setNombredefois(user.getNombretotal()+cpt);
-	        moneyThief.setBalance(moneyThief.getBalance()+50);
+	        user.setNombredefois(user.getNombredefois()+cpt);
+	        user.setNombretotal(user.getNombretotal()+50);
 	        userService.save(user);
 	    }
 	    model.addAttribute("users", userService.getAllUser());
