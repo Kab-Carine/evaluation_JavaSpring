@@ -1,32 +1,29 @@
-package com.example.PayMe.model;
+package com.example.payMe.model;
 
 import java.util.Date;
-
-import org.antlr.v4.runtime.misc.NotNull;
-
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
+@Data
 public class Virement {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.LAZY)
 	private User user;
 	
 	private Date date;
 	
-	
 	private float amount;
 	
-	//@Nonnull
 	private String label;
 
 	public Long getId() {
@@ -71,3 +68,7 @@ public class Virement {
 	
 	
 }
+
+
+
+

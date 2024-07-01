@@ -1,11 +1,68 @@
-<div th:insert="menu">
-<table th:each="user: ${users}">
-
-    <tr>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.email}"></td>
-        <td th:text="${user.iban}"></td>
-        <input type="submit" th:value="Creer">
-    </tr>
+<div th:insert="menu"></div>
+<style>
+    table {
+        width: 75%;
+        border-collapse: collapse;
+		margin: 15px 120px;
+    }
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    td button {
+        margin-left: 10px;
+    }
+</style>
+<table>
+	<!--<form th:action="@{/darkadmin}" th:object="${user}" method="post">-->
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>IBAN</th>
+			<th>Montant</th>
+			<th>Action</th>
+			<th>nombre total de pillage</th>
+			<th>Somme total pillé</th>
+			
+        </tr>
+    </thead>
+    <tbody th:each="user : ${users}">
+        <tr>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.iban}"></td>
+			<td th:text="${user.balance}"></td>
+            <td>
+                <a type="button" th:href="@{'/darkadmin/'+ ${user.id}}">Piller</a>
+            </td>
+			<td th:text="${user.nombredefois}"></td>
+			<td th:text="${user.nombretotal}"></td>
+        </tr>
+    </tbody>
+	
 </table>
-    </div>
+
+<!--
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Nombre de pillage</th>
+            <th>Somme total pillé</th>
+            
+        </tr>
+    </thead>
+    <tbody th:each="user : ${users}">
+        <tr>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.nombredefois}"></td>
+            <td th:text="${user.nombretotal}"></td>
+        </tr>
+    </tbody>
+</table>
+-->

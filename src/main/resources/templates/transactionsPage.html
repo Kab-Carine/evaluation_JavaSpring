@@ -1,24 +1,74 @@
-<div th:insert="menu">
+<div th:insert="menu"></div>
 
+<p>Transaction Send</p>
+
+
+<table>
+   <thead>
+      <tr>
+         <th> Sender </th>
+         <th> Amount </th>
+         <th> Date </th>
+         <th> label </th>
+      </tr> 
+   </thead> 
+   <tbody> 
+       <tr th:each="transaction : ${transactionSenders}">
+        <td><span th:text="${transaction.id}"></span></td>   
+        <td><span th:text="${transaction.amount}"></span></td>  
+        <td><span th:text="${transaction.date}"></span></td>  
+        <td><span th:text="${transaction.label}"></span></td>  
+       </tr>
+   </tbody>
+<table>
+
+
+<p>Transactions Receives</p>
+
+<table>
+   <thead>
+      <tr>
+         <th> Receiver </th>
+         <th> Amount </th>
+         <th> Date </th>
+         <th> label </th>
+      </tr> 
+   </thead> 
+   <tbody> 
+       <tr th:each="transaction : ${transactionReceivers}">
+        <td><span th:text="${transaction.id}"></span></td>   
+        <td><span th:text="${transaction.amount}"></span></td>  
+        <td><span th:text="${transaction.date}"></span></td>  
+        <td><span th:text="${transaction.label}"></span></td>  
+       </tr>
+   </tbody>
+<table>
+
+<p>Nouvelle transaction :</p>
+<p>
+ <select class="transaction" id="receiver" name="transactions">
+  <option value="">Sélectionner un contact</option>
+  <!--<option value="dog">Dog</option>-->
+  <option th:each="transaction : ${transaction}" th:value="${transaction.id}" th:text="${user.id}"></option>
+</select>
+</p>
+
+
+ <div>
+	<form th:action="@{/transactions}" th:object="${transaction}" method="post">
+		<label>Amount</label><input th:field="*{amount}">
+		<label>Label</label><input th:field="*{label}">
+		<input type="submit" th:value="Creer">
+	</form>
 </div>
 
-transactionsPage
-
-
-<table th:each="virement: ${virements}">
+<table th:each="contact: ${listContact}">
 	<tr>
-	              <th>Vendor</th>
-				  <th>Date</th>
-
-	              <th>Amount</th>
-	              <th>Label</th>
-	 </tr>
-	<tr>
-		<td th:text="${virement.user.name}"></td>
-
-		<td th:text="${virement.date}"></td>
-
-        <td th:text="${virement.amount}"></td>
-        <td th:text="${virement.label}"></td>
+        <td>[[${contact.name}]]</td>
+        <td th:text="${contact.email}"></td>
+        <td th:text="${contact.iban}"></td>
     </tr>
 </table>
+
+
+

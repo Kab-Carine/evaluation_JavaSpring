@@ -2,24 +2,25 @@
 
 </div>
 
-
-
-
 USER PROFIL
 
-Par table
+<!--
+<div>
+	Liste
+	<div th:each="contact : ${listContact}">
+		<td th:text = "${contact.name}"></td>		
+	</div>
+</div>
+-->
 <table th:each="contact: ${listContact}">
-	<tr>
-	              <th>Name</th>
-				  <th>email</th>
-	              <th>iban</th>
-	 </tr>
 	<tr>
         <td>[[${contact.name}]]</td>
         <td th:text="${contact.email}"></td>
         <td th:text="${contact.iban}"></td>
     </tr>
 </table>
+
+
 
 <div>
 	<form th:action="@{/addContact}" method="post">

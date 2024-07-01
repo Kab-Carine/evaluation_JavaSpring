@@ -1,14 +1,14 @@
-package com.example.PayMe.service;
+package com.example.payMe.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.PayMe.model.User;
-import com.example.PayMe.model.Virement;
-import com.example.PayMe.repository.UserRepository;
-import com.example.PayMe.repository.VirementRepository;
+import com.example.payMe.model.User;
+import com.example.payMe.model.Virement;
+import com.example.payMe.repository.UserRepository;
+import com.example.payMe.repository.VirementRepository;
 
 @Service
 public class VirementService {
@@ -24,11 +24,11 @@ public class VirementService {
 		 List<Virement> virements = virementRepository.findAllByUser(user);		
 		 return virements;
 	}
-
+	
 	public void save(Virement virement) {
 		virementRepository.save(virement);
 	}
 
+
+
 }
-
-

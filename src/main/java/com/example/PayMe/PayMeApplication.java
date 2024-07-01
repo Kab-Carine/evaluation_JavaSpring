@@ -1,4 +1,4 @@
-package com.example.PayMe;
+package com.example.payMe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

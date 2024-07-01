@@ -1,5 +1,4 @@
-package com.example.PayMe.controller;
-
+package com.example.payMe.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,13 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
 	
 	@GetMapping("/")
 	public String getHome(Model model) {
-		return ("home");
+		return("home");
 	}
-	
 	
 	@GetMapping("/testLog")
 	public String getTestLog(Model model) {

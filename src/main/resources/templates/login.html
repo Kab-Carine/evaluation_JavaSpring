@@ -1,9 +1,6 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
     <body>
-    
-    <div th:insert="menu">
-
-</div>
         <div th:if="${param.error}">
             Invalid username and password.
         </div>
@@ -16,3 +13,4 @@
             <div><input type="submit" value="Sign In"/></div>
         </form>
     </body>
+</html>

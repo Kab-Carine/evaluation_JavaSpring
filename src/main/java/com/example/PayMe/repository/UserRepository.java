@@ -1,17 +1,13 @@
-package com.example.PayMe.repository;
-
-import java.util.List;
+package com.example.payMe.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.PayMe.model.User;
+import com.example.payMe.model.User;
 
-@Repository
-public interface UserRepository extends CrudRepository<User, Long>{
-
-	User getUserByName(String name);
+@Repository	
+public interface UserRepository extends CrudRepository<User, Long>  {
 	
-	//List<User> findListContactByUser(User user);
+	User getUserByName(String name);
 
 }

@@ -1,37 +1,42 @@
-package com.example.PayMe.model;
+package com.example.payMe.model;
 
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class User {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String name;
-	
+
 	private float balance;
-	
+
 	private String iban;
-	
+
 	private String email;
-	
+
 	private String pwd;
 	
-	@ManyToMany
+	private Integer nombredefois;
+	
+	private Integer nombretotal;
+
+	@ManyToMany(fetch = FetchType.LAZY)
 	private List<User> listContacts;
 	
 	@OneToMany(mappedBy ="sender")
 	private List<Transaction> listeTransaction;
+	
 	
 	@OneToMany(mappedBy ="user")
 	private List<Virement> listeVirement;
@@ -111,7 +116,27 @@ public class User {
 	public void setListeVirement(List<Virement> listeVirement) {
 		this.listeVirement = listeVirement;
 	}
-	
-	
+
+	public Integer getNombredefois() {
+		return nombredefois;
+	}
+
+	public void setNombredefois(Integer nombredefois) {
+		this.nombredefois = nombredefois;
+	}
+
+	public Integer getNombretotal() {
+		return nombretotal;
+	}
+
+	public void setNombretotal(Integer nombretotal) {
+		this.nombretotal = nombretotal;
+	}
+
+
+
 	
 }
+
+
+
